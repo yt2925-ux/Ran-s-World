@@ -170,3 +170,41 @@ body {
     text-align: center;
     font-weight: 700;
 }
+/* ================= 移动端适配 ================= */
+@media (max-width: 768px) {
+    .project-section {
+        flex-direction: column !important;  /* 强制上下堆叠 */
+        padding: 40px 5%;                   /* 缩小两侧留白 */
+        gap: 30px;
+        min-height: auto;                   /* 取消全屏高度限制 */
+    }
+
+    .project-info {
+        max-width: 100%;                    /* 文字区撑满 */
+    }
+
+    .project-embed {
+        width: 100%;                        /* 卡片区撑满 */
+        height: 350px;                      /* 卡片高度适当缩小 */
+    }
+
+    .project-info h2 {
+        font-size: 2rem;                    /* 标题缩小 */
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-info p {
+        font-size: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;                    /* 顶部大标题缩小 */
+    }
+
+    .hero-content .subtitle {
+        font-size: 1.3rem;
+    }
+}
