@@ -170,41 +170,73 @@ body {
     text-align: center;
     font-weight: 700;
 }
-/* ================= 移动端适配 ================= */
+/* ================= 移动端强制修复 ================= */
 @media (max-width: 768px) {
-    .project-section {
-        flex-direction: column !important;  /* 强制上下堆叠 */
-        padding: 40px 5%;                   /* 缩小两侧留白 */
-        gap: 30px;
-        min-height: auto;                   /* 取消全屏高度限制 */
+    /* 让所有区块纵向排列，文字和卡片各占一行 */
+    .project-section,
+    .project-section:nth-child(even) {
+        flex-direction: column !important;
+        padding: 30px 5% !important;
+        gap: 25px !important;
+        min-height: auto !important;
+        align-items: stretch !important;  /* 让子元素横向拉满 */
     }
 
+    /* 文字区 */
     .project-info {
-        max-width: 100%;                    /* 文字区撑满 */
+        max-width: 100% !important;
+        flex: none !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
+    /* 卡片容器——强制等宽满宽 */
     .project-embed {
-        width: 100%;                        /* 卡片区撑满 */
-        height: 350px;                      /* 卡片高度适当缩小 */
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        height: 300px !important;       /* 统一高度，喜欢别的数值可改 */
+        flex: none !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        border: none !important;        /* 去边框避免视觉干扰 */
+        background: transparent !important;
     }
 
-    .project-info h2 {
-        font-size: 2rem;                    /* 标题缩小 */
+    /* 卡片内的链接 */
+    .project-embed a {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
     }
 
-    .project-info h3 {
-        font-size: 1.2rem;
+    /* 背景图容器 */
+    .project-embed a > div:first-child {
+        width: 100% !important;
+        height: 100% !important;
+        background-size: cover !important;
+        background-position: center !important;
     }
 
-    .project-info p {
-        font-size: 1rem;
+    /* 按钮横幅 */
+    .project-embed a > div:first-child > div:last-child {
+        width: 100% !important;
+        border-radius: 0 0 16px 16px !important;
+        box-sizing: border-box !important;
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
     }
 
-    .hero-content h1 {
-        font-size: 3rem;                    /* 顶部大标题缩小 */
-    }
+    /* 标题字号减小 */
+    .project-info h2 { font-size: 2rem !important; }
+    .project-info h3 { font-size: 1.1rem !important; }
+    .project-info p { font-size: 0.9rem !important; line-height: 1.6; }
 
-    .hero-content .subtitle {
-        font-size: 1.3rem;
-    }
+    .hero-content h1 { font-size: 2.5rem !important; }
+    .hero-content .subtitle { font-size: 1.1rem !important; }
 }
